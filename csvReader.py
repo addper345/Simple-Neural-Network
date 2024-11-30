@@ -1,19 +1,16 @@
 import csv
+import numpy as np
 
-def getTraingingData():
-    with open('500_Person_Gender_Height_Weight_Index.csv', 'r') as file:
+def getTrainingData(BMI):
+    with open("500_Person_Gender_Height_Weight_Index.csv", 'r') as file:
         reader = csv.reader(file)
         array_2d = []
         for row in reader:
-            array_2d.append(row[:3])
-        print(array_2d)
+            if(int(row[3]) == BMI):
+                array_2d.append(np.array(row[:3], dtype=float))
+    return array_2d[1:]
 
-    return array_2d
-
-
-
-
-
+    
 
 
 
